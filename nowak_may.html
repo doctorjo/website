@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="styles/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/4.0.0/math.js"></script> 
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="#home" class="w3-button w3-bar-item">Home</a>
+  <a href="#band" class="w3-button w3-bar-item">About</a>
+  <a href="#tour" class="w3-button w3-bar-item">Other Projects</a>
+  <a href="#contact" class="w3-button w3-bar-item">Contact</a>
+</nav>
+
+<section class="w3-container w3-center" style="max-width:600px">
+  <h2 class="w3-wide">Evolutionary Games</h2>
+  <p class="w3-opacity"><i>and spatial chaos</i></p>
+</section>
+
+<div id="stage">
+<canvas id="canvas">
+</canvas>
+</div>
+<div class ="w3-container">
+  <h3>Controls</h3>
+  <input  type="button" class = "w3-button w3-black" id="btn-start" value="Start" ></w3-button>
+ <input  type="button" class = "w3-button w3-black" id="btn-step" value="Step" ></w3-button>
+<select  type="button" class = "w3-button w3-black" id="btn-generate" value="single_seed" >
+  <option value="single_seed" > Single seed </option>
+  <option value="randomise" > Random (0.1%)</option>
+
+  </select>
+<select  type="button" class = "w3-button w3-black" id="btn-width" value="Width">
+  <option value="21" > 21 </option>
+  <option value="51" > 51 </option>
+  <option value="101" > 101 </option>
+  <option value="201" > 201 </option>
+</select>
+<select  type="button" class = "w3-button w3-black" id="btn-height" value="Height">
+  <option value="21" > 21 </option>
+  <option value="51" > 51 </option>
+  <option value="101" > 101 </option>
+  <option value="201" > 201 </option>
+</select>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  <a href="#"><i class="fa fa-facebook-official"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/doctorjo/"><i class="fa fa-github"></i></a>
+  <p class="w3-medium">
+    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </p>
+</footer>
+<script src="scripts/nw2.js"></script>
+</body>
+</html>
