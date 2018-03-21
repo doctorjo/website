@@ -27,10 +27,10 @@ function int_div(a, b){
     
 
 class World {
-    constructor(width, height, init,  wrap = "toroid" ){
+    constructor(width, height, init, b,  wrap = "toroid" ){
 	this.width = width;
 	this.height = height;
-	this.payoff = [[1,0],[1.7,0]];//ie payoff[0][1] gives c|d payoff
+	this.payoff = [[1,0],[b,0]];//ie payoff[0][1] gives c|d payoff
 	//this.init = init
 	//this.cells = zero_arr(width*height);
 	this.strategy =  zero_arr(width*height);//ones for defect, 0s for coop
@@ -180,11 +180,11 @@ class World {
 	
 	for (let k=-1;k<2;k++){//varies width, looks left and right
 	    for (let h=-1;h<2;h++){ // varies height, looks up and down
-		if (k==h && k==0){// does not compete with self
-		    continue; // would unduly advantage coops
-		}
+		//if (k==h && k==0){// 
+		//    continue; // 
+		//}
 		if (this.wrap == "none"){
-		    if (N+k == -1 || N+k == this.width || M+h == -1 || M+h == this.height){
+		    if (N+k == -1 || N+k == this.height || M+h == -1 || M+h == this.width){
 			continue;
 		    } else {
 			var a = N+k;
@@ -280,7 +280,7 @@ this.next_strategy array.
 		}
 	    }
 	}
-	console.log(this.strategy[i] == this.next_strategy[i])
+	//console.log(this.strategy[i] == this.next_strategy[i])
     }
      
 	
@@ -294,13 +294,13 @@ this.next_strategy array.
 	// then update strategy
 
 	for (let i=0;i<(height*width);i++){
-	    var pa = this.payoff_cell_4(i);
+	    var pa = this.payoff_cell(i);
 	    this.payment[i] = pa;
 	    //console.log(this.payment[i]);
 	}
 	console.log("its not in payment anymore..")
 	for (let i=0;i<(height*width);i++){
-	    this.update_strategy_4(i)
+	    this.update_strategy(i)
 	    // works out next_strategy
 	    
 	}
@@ -310,16 +310,16 @@ this.next_strategy array.
 }
 
 class Game {
-    constructor (canvas, width=21, height =21, init="single_seed"){
+    constructor (canvas, width=21, height =21, b=1.9 ,init="single_seed"){
 	this.canvas = canvas;
 	this.context = canvas.getContext("2d");
-	this.initialise(width, height, init);
+	this.initialise(width, height, b, init);
 	this.interval=undefined;
 	console.log("initialised game object");
     }
 
-    initialise(width, height, init) {
-	this.world = new World(width, height, init);
+    initialise(width, height, b, init) {
+	this.world = new World(width, height, b, init);
 	this.canvas.width = width;
 	this.canvas.height = height;
 	this.draw(this.context);
@@ -383,7 +383,9 @@ let canvas = document.getElementById('canvas'),
     stepBtn = document.getElementById("btn-step"),
     generateBtn = document.getElementById("btn-generate"),
     widthBtn = document.getElementById("btn-width"),
-    heightBtn = document.getElementById("btn-height");
+    resetBtn = document.getElementById("btn-reset"),
+    wrapBtn = document.getElementById("btn-wrap"),
+    bBtn = document.getElementById("btn-b");
 
 console.log("should have both game and world object");
 
@@ -407,16 +409,26 @@ startBtn.addEventListener("click", function(event) {
 generateBtn.addEventListener("change", function(event) {
     console.log("generate button value");
     console.log(generateBtn.value);
-    game.initialise(+widthBtn.value, +heightBtn.value, generateBtn.value);
+    game.initialise(+widthBtn.value, +widthBtn.value, generateBtn.value, +bBtn.value, wrapBtn.value);
 });
 
 widthBtn.addEventListener("change", function(event) {
-  game.initialise(+widthBtn.value, +heightBtn.value, generateBtn.value);
+    game.initialise(+widthBtn.value, +widthBtn.value, generateBtn.value, +bBtn.value, wrapBtn.value);
 });
 
-heightBtn.addEventListener("change", function(event) {
-  game.initialise(+widthBtn.value, +heightBtn.value, generateBtn.value);
+wrapBtn.addEventListener("change", function(event) {
+    game.initialise(+widthBtn.value, +widthBtn.value, generateBtn.value, +bBtn.value, wrapBtn.value);
 });
+
+resetBtn.addEventListener("click", function(event) {
+    console.log("reset");
+    game.initialise(+widthBtn.value, +widthBtn.value, generateBtn.value, +bBtn.value, wrapBtn.value);
+});
+
+bBtn.addEventListener("change", function(event) {
+    game.initialise(+widthBtn.value, +widthBtn.value, generateBtn.value, +bBtn.value, wrapBtn.value);
+});
+
 
 
 //game.initialise(+widthBtn.value, +heightBtn.value, +generateBtn.value);
