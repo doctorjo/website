@@ -93,3 +93,16 @@ img {
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
+.floating-box {
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border: none;
+    align: left;
+}
+
+.after-box {
+    clear: left;
+    border: 3px solid red;      
+}

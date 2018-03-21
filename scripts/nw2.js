@@ -30,6 +30,7 @@ class World {
     constructor(width, height, init, b,  wrap = "toroid" ){
 	this.width = width;
 	this.height = height;
+	this.step_count = 0
 	this.payoff = [[1,0],[b,0]];//ie payoff[0][1] gives c|d payoff
 	//this.init = init
 	//this.cells = zero_arr(width*height);
@@ -285,6 +286,9 @@ this.next_strategy array.
      
 	
     step(){
+	this.step_count = this.step_count + 1
+	console.log(this.step_count)
+	document.getElementById("step").innerHTML = this.step_count;
 	let height = this.height,
 	    width = this.width;
 
@@ -298,7 +302,6 @@ this.next_strategy array.
 	    this.payment[i] = pa;
 	    //console.log(this.payment[i]);
 	}
-	console.log("its not in payment anymore..")
 	for (let i=0;i<(height*width);i++){
 	    this.update_strategy(i)
 	    // works out next_strategy
@@ -320,6 +323,7 @@ class Game {
 
     initialise(width, height, b, init) {
 	this.world = new World(width, height, b, init);
+	document.getElementById("step").innerHTML = this.world.step_count;
 	this.canvas.width = width;
 	this.canvas.height = height;
 	this.draw(this.context);
@@ -328,9 +332,7 @@ class Game {
     update(){
 	console.log("in update");
 	this.world.step();
-	console.log("still in update");
 	this.draw(this.context);
-	console.log("after draw, still in update");
 	this.world.set_strategy(this.world.next_strategy);
     }
 
@@ -393,6 +395,8 @@ stepBtn.addEventListener("click", function(event) {
     console.log("in step button");
     game.update()
 });
+
+document.getElementById("step").innerHTML = game.world.step_count;
 
 startBtn.addEventListener("click", function(event) {
   if (game.running()) {

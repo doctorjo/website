@@ -18,23 +18,22 @@
 
 <section class="w3-container w3-center" style="max-width:600px">
   <h2 class="w3-wide">Evolutionary Games</h2>
-  <p class="w3-opacity"><i>and spatial chaos</i></p>
+  <h3 class="w3-opacity"><i>and spatial chaos</i></h3>
+  <p> M. A. Nowak and R. M. May, (1992) Nature 358 826-829 </p>
 </section>
 
-<div id="stage">
-<canvas id="canvas" width="50%">
-</canvas>
-</div>
+<div class="wrapper" style="margin: 0 auto; width: 800px; position: relative;">
 
-
-
-<table id="t01">
+    <div class="floating-box">
+   <h3> Payoff Matrix </h3> 
+<table id="t01" align="center">
   <tr>
     <th></th>
-    <th>Other</th> 
-    <th></th>
+    <th></th> 
+    <th>Other</th>
         <th></th>
   </tr>
+
   <tr>
         <th></th>
     <td></td>
@@ -42,7 +41,7 @@
     <td>D</td>
   </tr>
   <tr>
-    <td>Self</td>
+    <th>Self</th>
     <td>C</td> 
     <td>1</td>
         <td>0</td>
@@ -61,14 +60,35 @@
   <option value="1.6" > 1.6 </option>
   <option value="1.7" > 1.7 </option>
   <option value="1.8" > 1.8 </option>
+    <option value="1.85" > 1.85 </option>
   <option value="1.9" > 1.9 </option>
-  <option value="2" > 2.1 </option>
+  <option value="2" > 2.0 </option>
   <option value="2.1" > 2.1 </option>
+  <option value="2.2" > 2.2 </option>
+  <option value="2.3" > 2.3 </option>
+  <option value="2.4" > 2.4 </option>
+    <option value="3.0" > 3.0 </option>
+  
 </select>
     </td>
         <td>0</td>
   </tr>
 </table>
+
+<h3> Step Count <span id="step"></span> </h3>
+    </div>
+    
+  <div class="floating-box" id="stage">
+    
+    <canvas id="canvas" align="left"></canvas>
+    
+
+  </div>
+  
+
+
+
+  </div>
 
 <div class ="w3-container">
   <input  type="button" class = "w3-button w3-black" id="btn-start" value="Start" ></w3-button>
