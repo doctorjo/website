@@ -136,12 +136,7 @@ class World {
 	this.strategy[i-this.width] = 0;
 	this.next_strategy[i-this.width] = 0;
     }
-	
 
-	
-	
-    
-	
     single_seed(){//put single defector seed in center
 	//this.strategy initialised as zero array
 	this.strategy = all_arr(this.width*this.height, 0);
