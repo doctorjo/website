@@ -3,6 +3,21 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
+#content {
+    position: relative;
+}
+#content img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width:120px; /* you can use % */
+    height: auto;
+}
+
+img.resize {
+    width:120px; /* you can use % */
+    height: auto;
+}
 
 h1 {
   font-size: 60px;

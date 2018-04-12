@@ -116,7 +116,7 @@ class Game {
         data[i + 1] = 0;
         data[i + 2] = 0;
         data[i + 3] = 200;
-q      } else {
+      } else {
         data[i + 3] = 0;
       }
     }
@@ -127,6 +127,7 @@ q      } else {
 let canvas = document.getElementById('canvas'),
     game = new Game(canvas),
     startBtn = document.getElementById("btn-start"),
+    stepBtn = document.getElementById("btn-step"),
     generateBtn = document.getElementById("btn-generate"),
     sizeBtn = document.getElementById("btn-size");
 
