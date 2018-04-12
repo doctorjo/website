@@ -1,27 +1,72 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <h1>Mozilla is cool</h1>
-    <img src="images/firefox-icon.png" alt="The Firefox logo: a flaming fox surrounding the Earth.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<body>
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="#home" class="w3-button w3-bar-item">Home</a>
+  <a href="#band" class="w3-button w3-bar-item">About</a>
+  <a href="#nowak_may" class="w3-button w3-bar-item">Nowak May</a>
+  <a href="#contact" class="w3-button w3-bar-item">Contact</a>
+</nav>
+<!-- Slide Show -->
+<section>
+  <img class="mySlides" src="bif.png" style="width:100%">
+  <img class="mySlides" src="cob.png" style="width:100%">
+</section>
 
-    <p>At Mozilla, we’re a global community of</p>
-    
-    <ul> <!-- changed to list in the tutorial -->
-      <li>technologists</li>
-      <li>thinkers</li>
-      <li>builders</li>
-    </ul>
+<section class="w3-container w3-center" style="max-width:600px">
+  <h2 class="w3-wide">Chaos</h2>
+  <p class="w3-opacity"><i>and order</i></p>
+</section>
 
-    <p>working together to keep the Internet alive and accessible, so people worldwide can be informed contributors and creators of the Web. We believe this act of human collaboration across an open platform is essential to individual growth and our collective future.</p>
+<section class="w3-container w3-content w3-center" style="max-width:600px">
+<p class="w3-justify">
+I have just created a website for myself using an online tutorial from <href>https://www.w3schools.com/howto/howto_website.asp</href> </p>
+</section>
 
-    <p>Read the <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a> to learn even more about the values and principles that guide the pursuit of our mission.</p>
+<section class="w3-row-padding w3-center w3-light-grey">
+  <article class="w3-third">
+    <p>Jo</p>
+    <img src="me.jpg" alt="Jo Houghton" style="width:100%">
+  </article>
 
-    <script src="scripts/main.js"></script>
-  </body>
+</section>
+
+
+Hello world!
+
+
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  <a href="#"><i class="fa fa-facebook-official"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/doctorjo/"><i class="fa fa-github"></i></a>
+  <p class="w3-medium">
+    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </p>
+</footer>
+
+<script>  // Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 3000);
+	}
+	</script>
+</body>
 </html>
