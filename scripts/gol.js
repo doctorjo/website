@@ -1,11 +1,13 @@
 // from https://codereview.stackexchange.com/questions/159317/javascript-implementation-of-conways-game-of-life-with-html5-canvas
+// rewritten to give step button and wrap button
 
 class World {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
-    this.cells = new Array(width * height);
-    this.acc = new Array(3 * width);
+    constructor(width, height, wrap) {
+	this.width = width;
+	this.height = height;
+	this.cells = new Array(width * height);
+	this.acc = new Array(3 * width);
+	this.wrap = wrap
   }
   randomize(density = 0.5) {
     let cells = this.cells,
@@ -78,10 +80,10 @@ class Game {
     this.initialize(size);
     this.interval = undefined;
   }
-  initialize(size) {
+    initialize(size, wrap) {
     let cellSize = this.canvas.clientWidth / size;
 
-    this.world = new World(size, size);
+	this.world = new World(size, size, wrap);
     this.world.randomize();
     
     this.canvas.width = size;
@@ -129,7 +131,8 @@ let canvas = document.getElementById('canvas'),
     startBtn = document.getElementById("btn-start"),
     stepBtn = document.getElementById("btn-step"),
     generateBtn = document.getElementById("btn-generate"),
-    sizeBtn = document.getElementById("btn-size");
+    sizeBtn = document.getElementById("btn-size"),
+    wrapBtn = document.getElementById("btn-wrap");
 
 startBtn.addEventListener("click", function(event) {
   if (game.running()) {
@@ -150,14 +153,18 @@ stepBtn.addEventListener("click", function(event) {
 	game.update();
     }
 });
+
+wrapBtn.addEventListener("change", function(event) {
+    game.initialize(+sizeBtn.value, wrapBtn.value)
+});
 	
 
 generateBtn.addEventListener("click", function(event) {
-  game.initialize(+sizeBtn.value);
+    game.initialize(+sizeBtn.value, wrapBtn.value);
 });
 
 sizeBtn.addEventListener("change", function(event) {
-  game.initialize(+sizeBtn.value);
+    game.initialize(+sizeBtn.value, wrapBtn.value);
 });
 
-game.initialize(+sizeBtn.value);
+game.initialize(+sizeBtn.value, wrapBtn.value);
