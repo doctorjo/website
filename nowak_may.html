@@ -13,15 +13,18 @@
     <a href="index.html" class="w3-button w3-bar-item">Home</a>
     <a href="conway.html" class="w3-button w3-bar-item">Game of Life</a>
     <a href="nowak_may.html" class="w3-button w3-bar-item">Nowak May</a>
-    <a href="contact.html" class="w3-button w3-bar-item">Contact</a>
+    <a href="links.html" class="w3-button w3-bar-item">Links</a>
   </nav>
 
-  <section class="w3-container w3-center" style="max-width:600px">
+  <section class="w3-container w3-content w3-center" style="max-width:600px">
+
     <h2 class="w3-wide">Evolutionary Games</h2>
     <h3 class="w3-opacity"><i>and spatial chaos</i></h3>
-    <p> M. A. Nowak and R. M. May, (1992) Nature 358 826-829 </p>
-  </section>
+    <p> M. A. Nowak and R. M. May, (1992) Nature 358 826-829 <a href="https://ped.fas.harvard.edu/files/ped/files/nature92_0.pdf"> PDF </a> </p>
+    <p> <small> Each time step, every cell plays a modified 'prisoners dilemma' game with itself and its 8 neighbours. It then choses to mimic the stragegy of the highest scoring neighbour, if its score is higher than its own. </p>
 
+  </section>
+<!-- <section class="w3-container w3-content w3-center" style="max-width:800px"> -->
   <div class="floating-boxl">
 
 
@@ -101,12 +104,12 @@
   </div>
   
 
-    
-  <canvas id="canvas" align="left"></canvas>
-    
+    <div it="stage">
+  <canvas id="canvas" align="right"></canvas>
+    </div>
 
  
-  
+
 
   <div style="clear: both">&nbsp;</div>
 
@@ -114,7 +117,7 @@
     <input  type="button" class="w3-button w3-black" id="btn-start" value="Start" >
     <input  type="button" class="w3-button w3-black" id="btn-step" value="Step" >
 <select  type="button" class="w3-button w3-black" id="btn-generate" value="single_seed" >
-  <option value="singleD_seed" > Single D seed </option>
+  <option value="singleD_seed" selected  > Single D seed </option>
   <option value="singleC_seed" > Single C seed </option>
   <option value="squareC_seed2" > 2x2 C seed </option>
   <option value="squareC_seed3" > 3x3 C seed </option>
@@ -132,7 +135,7 @@
 
 <select  type="button" class="w3-button w3-black" id="btn-wrap" value="toroid" >
   <option value="toroid" > Wrap Edges </option>
-  <option value="none" > Fixed Edges </option>
+  <option value="none" selected > Fixed Edges </option>
 </select>
 
 <input type="button" class="w3-button w3-black" id="btn-reset" value="Reset">

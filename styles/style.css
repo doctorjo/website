@@ -130,3 +130,7 @@ canvas {
     clear: left;
     border: 3px solid red;      
 }
+
+small { 
+    font-size: smaller;
+}
